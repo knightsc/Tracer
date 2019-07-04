@@ -439,6 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sc.knight.Tracer.tracerd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = EndpointSecurity;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -458,6 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sc.knight.Tracer.tracerd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = EndpointSecurity;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

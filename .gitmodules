@@ -1,0 +1,3 @@
+[submodule "EndpointSecurity"]
+	path = EndpointSecurity
+	url = https://github.com/knightsc/EndpointSecurity.git
