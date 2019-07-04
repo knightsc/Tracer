@@ -13,6 +13,7 @@
 		6FAC93E622CE520D00324BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FAC93E522CE520D00324BF8 /* Assets.xcassets */; };
 		6FAC93E922CE520D00324BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FAC93E722CE520D00324BF8 /* Main.storyboard */; };
 		6FD780C622CE55C8000559A0 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F611B22CE545B00EC9816 /* IPCConnection.swift */; };
+		6FD780C822CE6BD8000559A0 /* ESClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD780C722CE6BD8000559A0 /* ESClient.swift */; };
 		6FF4DC9922CE52C800F127A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4DC9822CE52C800F127A2 /* main.swift */; };
 		6FF4DC9E22CE52C800F127A2 /* tracerd.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 6FF4DC9122CE52C800F127A2 /* tracerd.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6FF4DCA422CE52EE00F127A2 /* SystemExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF4DCA322CE52EE00F127A2 /* SystemExtensions.framework */; };
@@ -52,6 +53,7 @@
 		6FAC93E822CE520D00324BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6FAC93EA22CE520D00324BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FAC93EB22CE520D00324BF8 /* Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracer.entitlements; sourceTree = "<group>"; };
+		6FD780C722CE6BD8000559A0 /* ESClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESClient.swift; sourceTree = "<group>"; };
 		6FF4DC9122CE52C800F127A2 /* tracerd.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = tracerd.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF4DC9322CE52C800F127A2 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		6FF4DC9822CE52C800F127A2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				6F5F611B22CE545B00EC9816 /* IPCConnection.swift */,
+				6FD780C722CE6BD8000559A0 /* ESClient.swift */,
 				6FF4DC9822CE52C800F127A2 /* main.swift */,
 				6FF4DC9A22CE52C800F127A2 /* Info.plist */,
 				6FF4DC9B22CE52C800F127A2 /* tracerd.entitlements */,
@@ -246,6 +249,7 @@
 			files = (
 				6F5F611C22CE545B00EC9816 /* IPCConnection.swift in Sources */,
 				6FF4DC9922CE52C800F127A2 /* main.swift in Sources */,
+				6FD780C822CE6BD8000559A0 /* ESClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -93,7 +93,7 @@ extension AppDelegate: AppCommunication {
     // MARK: AppCommunication
     
     func promptUser(responseHandler: @escaping (Bool) -> Void) {
-        os_log("promptuser");
+        os_log("promptuser")
         responseHandler(true)
     }
 }

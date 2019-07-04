@@ -10,6 +10,7 @@ import Foundation
 
 autoreleasepool {
     IPCConnection.shared.startListener()
+    ESClient.shared.connect()
 }
 
 dispatchMain()
