@@ -15,7 +15,7 @@
 		6FD780C622CE55C8000559A0 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F611B22CE545B00EC9816 /* IPCConnection.swift */; };
 		6FD780C822CE6BD8000559A0 /* ESClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD780C722CE6BD8000559A0 /* ESClient.swift */; };
 		6FF4DC9922CE52C800F127A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4DC9822CE52C800F127A2 /* main.swift */; };
-		6FF4DC9E22CE52C800F127A2 /* tracerd.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 6FF4DC9122CE52C800F127A2 /* tracerd.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6FF4DC9E22CE52C800F127A2 /* sc.knight.Tracer.tracerd.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 6FF4DC9122CE52C800F127A2 /* sc.knight.Tracer.tracerd.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6FF4DCA422CE52EE00F127A2 /* SystemExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF4DCA322CE52EE00F127A2 /* SystemExtensions.framework */; };
 		6FF4DCA622CE530600F127A2 /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF4DCA522CE52FE00F127A2 /* libEndpointSecurity.tbd */; };
 /* End PBXBuildFile section */
@@ -37,7 +37,7 @@
 			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				6FF4DC9E22CE52C800F127A2 /* tracerd.systemextension in Embed System Extensions */,
+				6FF4DC9E22CE52C800F127A2 /* sc.knight.Tracer.tracerd.systemextension in Embed System Extensions */,
 			);
 			name = "Embed System Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +54,7 @@
 		6FAC93EA22CE520D00324BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FAC93EB22CE520D00324BF8 /* Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tracer.entitlements; sourceTree = "<group>"; };
 		6FD780C722CE6BD8000559A0 /* ESClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESClient.swift; sourceTree = "<group>"; };
-		6FF4DC9122CE52C800F127A2 /* tracerd.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = tracerd.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FF4DC9122CE52C800F127A2 /* sc.knight.Tracer.tracerd.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = sc.knight.Tracer.tracerd.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FF4DC9322CE52C800F127A2 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		6FF4DC9822CE52C800F127A2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6FF4DC9A22CE52C800F127A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				6FAC93DE22CE520C00324BF8 /* Tracer.app */,
-				6FF4DC9122CE52C800F127A2 /* tracerd.systemextension */,
+				6FF4DC9122CE52C800F127A2 /* sc.knight.Tracer.tracerd.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,7 +173,7 @@
 			);
 			name = tracerd;
 			productName = tracerd;
-			productReference = 6FF4DC9122CE52C800F127A2 /* tracerd.systemextension */;
+			productReference = 6FF4DC9122CE52C800F127A2 /* sc.knight.Tracer.tracerd.systemextension */;
 			productType = "com.apple.product-type.system-extension";
 		};
 /* End PBXNativeTarget section */
@@ -396,12 +396,15 @@
 				CODE_SIGN_ENTITLEMENTS = Tracer/Tracer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4Z5U73CD8Q;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Tracer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sc.knight.Tracer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -416,12 +419,15 @@
 				CODE_SIGN_ENTITLEMENTS = Tracer/Tracer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4Z5U73CD8Q;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Tracer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sc.knight.Tracer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -433,15 +439,19 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = tracerd/tracerd.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4Z5U73CD8Q;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = tracerd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sc.knight.Tracer.tracerd;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = EndpointSecurity;
 				SWIFT_VERSION = 5.0;
@@ -453,15 +463,19 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = tracerd/tracerd.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4Z5U73CD8Q;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = tracerd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sc.knight.Tracer.tracerd;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = EndpointSecurity;
 				SWIFT_VERSION = 5.0;

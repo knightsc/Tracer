@@ -17,22 +17,14 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2019 Scott Knight. All rights reserved.</string>
-	<key>NetworkExtension</key>
-	<dict>
-		<key>NEMachServiceName</key>
-		<string>$(TeamIdentifierPrefix)com.example.app-group.MySystemExtension</string>
-		<key>NEProviderClasses</key>
-		<dict>
-			<key>com.apple.networkextension.app-proxy</key>
-			<string>$(PRODUCT_MODULE_NAME).AppProxyProvider</string>
-		</dict>
-	</dict>
+	<key>NSSystemExtensionUsageDescription</key>
+	<string>Endpoint Security system extension</string>
 </dict>
 </plist>
