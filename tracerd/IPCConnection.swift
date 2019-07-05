@@ -7,7 +7,9 @@
 //
 
 import Foundation
-import os
+import os.log
+
+let tracerdIPCLog = OSLog.init(subsystem: "sc.knight.Tracer.tracerd", category: "IPC")
 
 @objc protocol ProviderCommunication {
     
@@ -17,7 +19,7 @@ import os
 /// Provider --> App IPC
 @objc protocol AppCommunication {
     
-    func promptUser(responseHandler: @escaping (Bool) -> Void)
+    func exec(file: String)
 }
 
 class IPCConnection: NSObject {
@@ -43,7 +45,7 @@ class IPCConnection: NSObject {
     func startListener() {
         
         let machServiceName = extensionMachServiceName(from: Bundle.main)
-        os_log("Starting XPC listener for mach service %@", machServiceName)
+        os_log("Starting XPC listener for mach service %@", log: tracerdIPCLog, type: .info, machServiceName)
         
         let newListener = NSXPCListener(machServiceName: machServiceName)
         newListener.delegate = self
@@ -57,7 +59,7 @@ class IPCConnection: NSObject {
         self.delegate = delegate
         
         guard currentConnection == nil else {
-            os_log("Already registered with the provider")
+            os_log("Already registered with the provider", log: tracerdIPCLog, type: .error)
             completionHandler(true)
             return
         }
@@ -76,7 +78,7 @@ class IPCConnection: NSObject {
         newConnection.resume()
         
         guard let providerProxy = newConnection.remoteObjectProxyWithErrorHandler({ registerError in
-            os_log("Failed to register with the provider: %@", registerError.localizedDescription)
+            os_log("Failed to register with the provider: %@", log: tracerdIPCLog, type: .error, registerError.localizedDescription)
             self.currentConnection?.invalidate()
             self.currentConnection = nil
             completionHandler(false)
@@ -87,24 +89,21 @@ class IPCConnection: NSObject {
         providerProxy.register(completionHandler)
     }
     
-    func promptUser(responseHandler:@escaping (Bool) -> Void) -> Bool {
-        
+    func exec(file : String) {
         guard let connection = currentConnection else {
-            os_log("Cannot prompt user because the app isn't registered")
-            return false
+            os_log("Cannot send log because the app isn't registered", log: tracerdIPCLog, type: .error)
+            return
         }
         
         guard let appProxy = connection.remoteObjectProxyWithErrorHandler({ promptError in
-            os_log("Failed to prompt the user: %@", promptError.localizedDescription)
+            os_log("Failed to send log: %@", log: tracerdIPCLog, type: .error, promptError.localizedDescription)
             self.currentConnection = nil
-            responseHandler(true)
+            return
         }) as? AppCommunication else {
             fatalError("Failed to create a remote object proxy for the app")
         }
         
-        appProxy.promptUser(responseHandler: responseHandler)
-        
-        return true
+        appProxy.exec(file: file)
     }
 }
 
@@ -142,7 +141,7 @@ extension IPCConnection: ProviderCommunication {
     
     func register(_ completionHandler: @escaping (Bool) -> Void) {
         
-        os_log("App registered")
+        os_log("App registered", log: tracerdIPCLog, type: .info)
         completionHandler(true)
     }
 }

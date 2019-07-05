@@ -8,7 +8,9 @@
 
 import Cocoa
 import SystemExtensions
-import os
+import os.log
+
+let tracerLog = OSLog.init(subsystem: "sc.knight.Tracer", category: "Main")
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -49,21 +51,21 @@ extension AppDelegate: OSSystemExtensionRequestDelegate {
     }
     
     func request(_ request: OSSystemExtensionRequest, actionForReplacingExtension existing: OSSystemExtensionProperties, withExtension ext: OSSystemExtensionProperties) -> OSSystemExtensionRequest.ReplacementAction {
-        os_log("sysex actionForReplacingExtension %@ %@", existing, ext)
+        os_log("sysex actionForReplacingExtension %@ %@", log: tracerLog, type: .info, existing, ext)
         
         return .replace
     }
     
     func requestNeedsUserApproval(_ request: OSSystemExtensionRequest) {
-        os_log("sysex needsUserApproval")
+        os_log("sysex needsUserApproval", log: tracerLog, type: .info)
         
     }
     
     func request(_ request: OSSystemExtensionRequest, didFinishWithResult result: OSSystemExtensionRequest.Result) {
-        os_log("sysex didFinishWithResult %@", result.rawValue)
+        os_log("sysex didFinishWithResult %@", log: tracerLog, type: .info, result.rawValue)
         
         guard result == .completed else {
-            os_log("Unexpected result %d for system extension request", result.rawValue)
+            os_log("Unexpected result %d for system extension request", log: tracerLog, type: .error, result.rawValue)
             return
         }
         
@@ -71,7 +73,7 @@ extension AppDelegate: OSSystemExtensionRequestDelegate {
     }
     
     func request(_ request: OSSystemExtensionRequest, didFailWithError error: Error) {
-        os_log("sysex didFailWithError %@", error.localizedDescription)
+        os_log("sysex didFailWithError %@", log: tracerLog, type: .error, error.localizedDescription)
     }
     
     func registerWithProvider() {
@@ -79,9 +81,9 @@ extension AppDelegate: OSSystemExtensionRequestDelegate {
         IPCConnection.shared.register(withExtension: extensionBundle(), delegate: self) { success in
             DispatchQueue.main.async {
                 if success {
-                    os_log("registered")
+                    os_log("registered", log: tracerLog, type: .info)
                 } else {
-                    os_log("failed register")
+                    os_log("failed register", log: tracerLog, type: .error)
                 }
             }
         }
@@ -92,8 +94,7 @@ extension AppDelegate: AppCommunication {
     
     // MARK: AppCommunication
     
-    func promptUser(responseHandler: @escaping (Bool) -> Void) {
-        os_log("promptuser")
-        responseHandler(true)
+    func exec(file : String) {
+        os_log("exec: %s", log: tracerLog, type: .info, file)
     }
 }
