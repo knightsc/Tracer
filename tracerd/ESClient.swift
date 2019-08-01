@@ -20,7 +20,7 @@ class ESClient {
     func connect() {        
         let res = es_new_client(&client) { (client, message) in
             if message.pointee.event_type == ES_EVENT_TYPE_NOTIFY_EXEC {
-                IPCConnection.shared.exec(file: String(cString: message.pointee.event.exec.proc.file.path.data))
+                IPCConnection.shared.exec(file: String(cString: (message.pointee.event.exec.target?.pointee.executable?.pointee.path.data)!))
             }
             
             if message.pointee.action_type == ES_ACTION_TYPE_AUTH {
